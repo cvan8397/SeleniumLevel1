@@ -33,7 +33,7 @@ public class RegisterPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(btnRegister);
     }
 
-    public WebElement getLblRegister(){
+    public WebElement getLblRegister() {
         return Constant.WEBDRIVER.findElement(lblRegisterMsg);
     }
 

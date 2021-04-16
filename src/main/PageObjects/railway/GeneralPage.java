@@ -11,6 +11,7 @@ public class GeneralPage {
     private final By tabRegister = By.xpath("//div[@id= 'menu' ]//a[@href='/Account/Register.cshtml']");
     private final By lblWelcomeMessage = By.xpath("//div[@class='account']/strong");
     private final By lblCreateSuccessfullyMsg = By.xpath("//div[@id='content']/p");
+    private final By tabBookTicket = By.xpath("//div[@id= 'menu' ]//a[@href='/Page/BookTicketPage.cshtml']");
 
     //Elements
     protected WebElement getTabLogin() {
@@ -25,29 +26,39 @@ public class GeneralPage {
         return Constant.WEBDRIVER.findElement(lblWelcomeMessage);
     }
 
-    protected WebElement getTabRegister(){
+    protected WebElement getTabRegister() {
         return Constant.WEBDRIVER.findElement(tabRegister);
     }
 
-    protected WebElement getLblCreateSuccessfully(){
+    protected WebElement getLblCreateSuccessfully() {
         return Constant.WEBDRIVER.findElement(lblCreateSuccessfullyMsg);
     }
+
+    protected WebElement getTabBookTicket(){
+        return Constant.WEBDRIVER.findElement(tabBookTicket);
+    }
+
     //Method
-    public String getWelcomeMessage(){
+    public String getWelcomeMessage() {
         return this.getLblWelcomeMessage().getText();
     }
 
-    public LoginPage gotoLoginPage(){
+    public LoginPage gotoLoginPage() {
         this.getTabLogin().click();
         return new LoginPage();
     }
 
-    public String getCreateSuccessfullyMsg(){
+    public String getCreateSuccessfullyMsg() {
         return this.getLblCreateSuccessfully().getText();
     }
 
-    public RegisterPage gotoRegisterPage(){
+    public RegisterPage gotoRegisterPage() {
         this.getTabRegister().click();
         return new RegisterPage();
+    }
+
+    public BookTicketPage gotoBookTicketPage(){
+        this.getTabBookTicket();
+        return new BookTicketPage();
     }
 }

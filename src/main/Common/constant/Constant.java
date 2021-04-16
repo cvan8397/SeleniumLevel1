@@ -1,6 +1,6 @@
 package constant;
 
-import  org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver;
 
 public class Constant {
     public static WebDriver WEBDRIVER;
@@ -11,7 +11,7 @@ public class Constant {
     public static final String PASSWORD = "12345678";
 
     //register
-    public static final String EMAIL = "van123456@gmail.com";
+    public static final String EMAIL = "van123456789ab@gmail.com";
     public static final String PASSWORD1 = "123123123";
     public static final String CONFIRM = "123123123";
     public static final String PID = "123456789";

@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class LoginTest {
-    JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
+    JavascriptExecutor js;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -20,6 +20,7 @@ public class LoginTest {
                 + "\\src\\main\\Executables\\chromedriver.exe");
         Constant.WEBDRIVER = new ChromeDriver();
         Constant.WEBDRIVER.manage().window().maximize();
+        js = (JavascriptExecutor) Constant.WEBDRIVER;
 
     }
 
@@ -63,5 +64,6 @@ public class LoginTest {
     @Test
     public void TC03() {
         System.out.println("TC03 - User can book ticket successfully");
+
     }
 }

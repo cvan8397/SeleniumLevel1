@@ -4,7 +4,7 @@ import constant.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class LoginPage extends GeneralPage{
+public class LoginPage extends GeneralPage {
     private final By _txtUsername = By.id("username");
     private final By _txtPassword = By.id("password");
     private final By _btnLogin = By.xpath("//input[@title='Login']");
@@ -29,7 +29,7 @@ public class LoginPage extends GeneralPage{
     }
 
     //Methods
-    public HomePage login(String username, String password){
+    public HomePage login(String username, String password) {
         //submit login credentials
         this.getTxtUsername().sendKeys(username);
         this.getTxtPassword().sendKeys(password);
