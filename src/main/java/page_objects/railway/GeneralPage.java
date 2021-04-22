@@ -44,23 +44,16 @@ public class GeneralPage {
         return this.getLblWelcomeMessage().getText();
     }
 
-    public LoginPage gotoLoginPage() {
+    public void gotoLoginPage() {
         this.getTabLogin().click();
-        return new LoginPage();
+        //return new LoginPage();
     }
 
-    public RegisterPage gotoRegisterPage() {
+    public void gotoRegisterPage() {
         this.getTabRegister().click();
-        return new RegisterPage();
     }
 
-
-    public String getCreateSuccessfullyMsg() {
-        return this.getLblCreateSuccessfully().getText();
-    }
-
-    public BookTicketPage gotoBookTicketPage(){
+    public void gotoBookTicketPage(){
         this.getTabBookTicket();
-        return new BookTicketPage();
     }
 }

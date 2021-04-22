@@ -38,14 +38,16 @@ public class RegisterPage extends GeneralPage {
     }
 
     //Methods
-    public LoginPage createAccount(String email, String password, String confirmPassword, String pid) {
+    public void createAccount(String email, String password, String confirmPassword, String pid) {
         //submit register credentials
         this.getTxtEmail().sendKeys(email);
         this.getTxtPassword().sendKeys(password);
         this.getTxtConfirmPassword().sendKeys(confirmPassword);
         this.getTxtPid().sendKeys(pid);
         this.getBtnRegister().click();
-        //Land on Login page
-        return new LoginPage();
+    }
+
+    public String getCreateSuccessfullyMsg() {
+        return this.getLblCreateSuccessfully().getText();
     }
 }
