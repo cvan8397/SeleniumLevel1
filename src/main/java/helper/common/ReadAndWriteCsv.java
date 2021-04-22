@@ -1,11 +1,12 @@
 package helper.common;
 
+import page_objects.railway.LoginPage;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadAndWriteFunc<T> {
-    //private static final String PATH = "src/data/";
+public class ReadAndWriteCsv<T> {
 
     public void writeFile(String PATH, List<T> list, boolean writeMode) {
         File file = new File(PATH);

@@ -1,32 +1,27 @@
 package test_cases;
 
-import helper.common.Utilities;
+import driver_manager.DriverManager;
+import driver_manager.DriverManagerFactory;
+import driver_manager.DriverType;
 import helper.constant.Constant;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.PageLoadStrategy;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 
 public class TestBase {
     JavascriptExecutor js;
-    ChromeOptions chromeOptions;
 
-    @BeforeMethod
+
+    @BeforeSuite
     public void beforeMethod() {
+        DriverManager driverManager;
         System.out.println("Pre-condition");
-
-        System.setProperty("webdriver.chrome.driver", Utilities.getProjectPath()
-                + "\\src\\main\\resources\\driver\\chromedriver.exe");
-        chromeOptions = new ChromeOptions();
-        chromeOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
-        Constant.WEBDRIVER = new ChromeDriver(chromeOptions);
-        Constant.WEBDRIVER.manage().window().maximize();
+        driverManager = DriverManagerFactory.getDriverManager(DriverType.CHROME);
+        Constant.WEBDRIVER = driverManager.getWebDriver();
         js = (JavascriptExecutor) Constant.WEBDRIVER;
     }
 
-    @AfterMethod
+    @AfterSuite
     public void afterMethod() {
         System.out.println("Post-condition");
         Constant.WEBDRIVER.quit();

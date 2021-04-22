@@ -10,7 +10,7 @@ import page_objects.railway.RegisterPage;
 public class RegisterTest extends TestBase {
     @Test
     public void TC01() {
-        System.out.println("TC02 - User can create new account with valid email and password");
+        System.out.println("TC01 - User can create new account with valid email and password");
         HomePage homePage = new HomePage();
         homePage.open();
 
@@ -24,7 +24,8 @@ public class RegisterTest extends TestBase {
 
         LoginPage loginPage = new LoginPage();
         homePage.gotoLoginPage();
-        String actualMsg1 = loginPage.login(Constant.EMAIL, Constant.PASSWORD1).getWelcomeMessage();
+        loginPage.login(Constant.EMAIL, Constant.PASSWORD1);
+        String actualMsg1 = homePage.getWelcomeMessage();
         String expectedMsg1 = "Welcome " + Constant.EMAIL;
         Assert.assertEquals(actualMsg1, expectedMsg1, "Welcome message is not displayed as expected");
     }

@@ -46,7 +46,6 @@ public class GeneralPage {
 
     public void gotoLoginPage() {
         this.getTabLogin().click();
-        //return new LoginPage();
     }
 
     public void gotoRegisterPage() {

@@ -1,6 +1,6 @@
 package helper.common;
 
-public class Utilities {
+public class Helper {
     public static String getProjectPath(){
         return System.getProperty("user.dir");
     }
