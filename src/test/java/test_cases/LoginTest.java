@@ -1,7 +1,9 @@
 package test_cases;
 
 import helper.common.ReadAndWriteCsv;
+import helper.common.ReadAndWriteJson;
 import helper.constant.Constant;
+import org.json.simple.JSONArray;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page_objects.railway.HomePage;
@@ -48,5 +50,29 @@ public class LoginTest extends TestBase {
                 Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
             }
         }
+    }
+
+    @Test
+    public void TC03() {
+        System.out.println("TC02 - User can log into Railway with invalid username and password");
+        HomePage homePage = new HomePage();
+        homePage.open();
+        homePage.gotoLoginPage();
+        LoginPage loginPage = new LoginPage();
+        JSONArray list = ReadAndWriteJson.readFile("src/test/java/resources/DataTestLogin.json");
+//        for (int i = 0; i < list.size(); i++) {
+//            String username = list.get(i)[0];
+//            String password = list.get(i)[1];
+//            System.out.println("username: " + username + " , password: " + password);
+//            js.executeScript("window.scrollBy(0,500)");
+//            loginPage.login(username, password);
+//            if (loginPage.getLblLoginErrorMsg().isDisplayed()) {
+//                String actualMsg = loginPage.getLblLoginErrorMsg().getText();
+//                String expectedMsg = "Invalid username or password. Please try again.";
+//                System.out.println("actualMsg: " + actualMsg);
+//                System.out.println("expectedMsg: " + expectedMsg);
+//                Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
+//            }
+//        }
     }
 }

@@ -1,9 +1,21 @@
 [
-  {"username":"caivan.8397@gamil.com", "password":"123123123"},
-
-  {"username":"crocks.style@gmail.com", "password":"pwd@1234"},
-
-  {"username":"", "password":"pwd@1234"},
-
-  {"username":"caivan.8397@gamil.com", "password":""}
+  {
+    "loginData": {
+      "username": "caivan.8397@gamil.com",
+      "password": "123123123"
+    }
+  },
+  {
+    "username": "crocks.style@gmail.com",
+    "password": "pwd@1234"
+  },
+  {
+    "username": "",
+    "password": "pwd@1234"
+  },
+  {
+    "username": "caivan.8397@gamil.com",
+    "password": ""
+  }
+  },
 ]
