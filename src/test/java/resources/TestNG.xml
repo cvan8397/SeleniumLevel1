@@ -6,7 +6,7 @@
 
     <test name="test1">
         <classes>
-            <class name="test_cases.LoginTest"/>
+            <class name="tests.test_case.LoginTest"/>
 
         </classes>
     </test>
