@@ -13,10 +13,10 @@ public class DataProviderHelper {
     @DataProvider(name="login")
     public Object[] dataLogin () throws IOException, ParseException {
         JSONParser jsonParser = new JSONParser();
-        FileReader reader = new FileReader("src/test/java/resources/data_driven/valid-login.json");
+        FileReader reader = new FileReader("src/test/java/resources/data_driven/data-login/invalid-data.json");
         Object obj = jsonParser.parse(reader);
         JSONObject userLonginJsonObj = (JSONObject) obj;
-        JSONArray userLoginArray = (JSONArray) userLonginJsonObj.get("login");
+        JSONArray userLoginArray = (JSONArray) userLonginJsonObj.get("invalid-login");
         String arr[] = new String[userLoginArray.size()];
         for (int i=0; i<userLoginArray.size(); i++){
             JSONObject users = (JSONObject) userLoginArray.get(i);
@@ -26,4 +26,5 @@ public class DataProviderHelper {
         }
         return arr;
     }
+
 }

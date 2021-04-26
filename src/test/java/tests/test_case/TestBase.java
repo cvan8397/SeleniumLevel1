@@ -11,11 +11,13 @@ public class TestBase {
     @BeforeSuite
     public void beforeMethod() {
         System.out.println("Pre-condition");
+
         Constant.DRIVER_MANAGER = DriverManagerFactory.getDriverManager(DriverManagerFactory.DriverType.CHROME);
         Constant.WEBDRIVER = Constant.DRIVER_MANAGER.getWebDriver();
-        Constant.WEBDRIVER.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        Constant.WEBDRIVER.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         Constant.WEBDRIVER.get(Constant.RAILWAY_URL);
     }
+
 
     @AfterSuite
     public void afterMethod() {
