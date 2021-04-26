@@ -8,6 +8,6 @@ public class FireFoxManager extends DriverManager{
     @Override
     protected void createWebDriver() {
         FirefoxOptions options = new FirefoxOptions();
-        Constant.WEBDRIVER = new FirefoxDriver(options);
+        this.driver = new FirefoxDriver(options);
     }
 }

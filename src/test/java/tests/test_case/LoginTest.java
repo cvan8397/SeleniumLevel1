@@ -11,17 +11,28 @@ import page_objects.LoginPage;
 import java.util.List;
 
 public class LoginTest extends TestBase {
-
+    HomePage homePage = new HomePage();
+    LoginPage loginPage = new LoginPage();
     @Test
     public void TC01() {
         System.out.println("TC01 - User can log into Railway with valid username and password");
-        HomePage homePage = new HomePage();
         homePage.gotoLoginPage();
-        LoginPage loginPage = new LoginPage();
         Common.scrollPage();
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
         String actualMsg = homePage.getWelcomeMsgText();
         String expectedMsg = "Welcome " + Constant.USERNAME;
+        Assert.assertEquals(actualMsg, expectedMsg, "Welcome message is not displayed as expected");
+    }
+
+    @Test (dataProvider = "login" , description = "Login successfully with valid account")
+    public void TC02(String data) {
+        String users[] = data.split(",");
+        System.out.println("TC01 - User can log into Railway with valid username and password");
+        homePage.gotoLoginPage();
+        Common.scrollPage();
+        loginPage.login(users[0],users[1]);
+        String actualMsg = homePage.getWelcomeMsgText();
+        String expectedMsg = "Welcome " + users[0];
         Assert.assertEquals(actualMsg, expectedMsg, "Welcome message is not displayed as expected");
     }
 

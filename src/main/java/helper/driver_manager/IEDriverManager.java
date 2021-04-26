@@ -8,6 +8,6 @@ public class IEDriverManager extends DriverManager {
     @Override
     protected void createWebDriver() {
         InternetExplorerOptions options = new InternetExplorerOptions();
-        Constant.WEBDRIVER = new InternetExplorerDriver(options);
+        this.driver = new InternetExplorerDriver(options);
     }
 }

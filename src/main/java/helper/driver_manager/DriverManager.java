@@ -4,17 +4,18 @@ import helper.Constant;
 import org.openqa.selenium.WebDriver;
 
 public abstract class DriverManager {
+    protected WebDriver driver;
     protected abstract void createWebDriver();
 
     public void quitWebDriver() {
-        if (null != Constant.WEBDRIVER) {
-            Constant.WEBDRIVER.quit();
-            Constant.WEBDRIVER = null;
+        if (null != driver) {
+            driver.quit();
+            driver = null;
         }
     }
 
     public WebDriver getWebDriver() {
-        if (null == Constant.WEBDRIVER) {
+        if (null == driver) {
             createWebDriver();
         }
         return Constant.WEBDRIVER;
