@@ -1,12 +1,9 @@
 package page_objects;
 
-import helper.Constant;
-import helper.elements_helper.Button;
-import helper.elements_helper.Label;
-import helper.elements_helper.TextBox;
+import helper.elements.Button;
+import helper.elements.Label;
+import helper.elements.TextBox;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import page_objects.GeneralPage;
 
 public class RegisterPage extends GeneralPage {
     private final TextBox txtEmail = new TextBox(By.id("email"));
@@ -18,6 +15,7 @@ public class RegisterPage extends GeneralPage {
     private final Button lblRegisterMsg = new Button(By.xpath("//div[@id='content']/p"));
 
     //Methods
+
     public void createAccount(String email, String password, String confirmPassword, String pid) {
         //submit register credentials
         this.txtEmail.enterText(email);

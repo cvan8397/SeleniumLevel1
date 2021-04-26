@@ -1,35 +1,60 @@
 package tests.test_case;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import helper.Common;
-import helper.DataProviderHelper;
-import helper.Constant;
+import helper.models.Login;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import page_objects.HomePage;
 import page_objects.LoginPage;
 
+import java.io.IOException;
+import java.util.List;
+
 public class LoginTest extends TestBase {
+    public static String validPath = "src/test/java/resources/data_driven/data-login/valid-login.json";
+    public static String invalidPath = "src/test/java/resources/data_driven/data-login/invalid-data.json";
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
-    @Test
-    public void TC01() {
-        System.out.println("TC01 - User can log into Railway with valid username and password");
-        homePage.gotoLoginPage();
-        Common.scrollPage();
-        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
-        String actualMsg = homePage.getWelcomeMsgText();
-        String expectedMsg = "Welcome " + Constant.USERNAME;
-        Assert.assertEquals(actualMsg, expectedMsg, "Welcome message is not displayed as expected");
+
+    @DataProvider(name = "valid-login")
+    public static Object[] getValidLoginData() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        List<Login> logins = objectMapper.readValue(Common.readFile(validPath), new TypeReference<List<Login>>() {
+        });
+        return logins.toArray();
     }
 
-    @Test (dataProvider = "login" , dataProviderClass = DataProviderHelper.class, description = "Login successfully with valid account")
-    public void TC02(String data) {
-        String users[] = data.split(",");
+    @Test(dataProvider = "valid-login", description = "Login successfully with valid account")
+    public void TC01(Login login) {
         homePage.gotoLoginPage();
-        Common.scrollPage();
-        loginPage.login(users[0],users[1]);
-        String actualMsg = loginPage.getTextLblLoginErrorMsg();
-        String expectedMsg = "Invalid username or password. Please try again.";
-        Assert.assertEquals(actualMsg, expectedMsg, "Welcome message is not displayed as expected");
+        loginPage.login(login.getUsername(), login.getPassword());
+        String actualResult = homePage.getWelcomeMsgText();
+        String expectedResult = login.getMessages();
+        homePage.logout();
+
+        Assert.assertEquals(actualResult, expectedResult, "Welcome message is not displayed as expected");
     }
+
+    @DataProvider(name = "invalid-login")
+    public static Object[] getInvalidLoginData() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        List<Login> logins = objectMapper.readValue(Common.readFile(invalidPath), new TypeReference<List<Login>>() {
+        });
+        return logins.toArray();
+    }
+
+    @Test(dataProvider = "invalid-login")
+    public void TC02(Login login) {
+        homePage.gotoLoginPage();
+        loginPage.login(login.getUsername(), login.getPassword());
+        String actualMsg = loginPage.getTextLblLoginErrorMsg();
+        String expectedMsg = login.getMessages();
+
+        Assert.assertEquals(actualMsg, expectedMsg, "Errors message is not displayed as expected");
+    }
+
+
 }

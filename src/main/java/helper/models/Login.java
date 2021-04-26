@@ -1,17 +1,10 @@
 package helper.models;
 
-public class login {
+public class Login {
     private String description;
     private String username;
     private String password;
     private String messages;
-
-    public login(String description, String username, String password, String messages) {
-        this.description = description;
-        this.username = username;
-        this.password = password;
-        this.messages = messages;
-    }
 
     public String getDescription() {
         return description;

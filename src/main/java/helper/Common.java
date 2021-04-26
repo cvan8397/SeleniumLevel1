@@ -14,7 +14,7 @@ public class Common {
         return System.getProperty("user.dir");
     }
 
-    public static String dateBookTicket() {
+    public static String getDepartFromRandom() {
         Calendar cal = Calendar.getInstance();
         int ranNum = ThreadLocalRandom.current().nextInt(3, 30);
         cal.add(Calendar.DATE, ranNum);
@@ -26,13 +26,13 @@ public class Common {
         js.executeScript("window.scrollBy(0,500)");
     }
 
-    public static String randomEmail() {
+    public static String getRandomEmail() {
         Faker faker = new Faker();
-        return faker.internet().emailAddress();
+        return faker.bothify("Van########@gmail.com");
     }
 
-    public static File readFile(String PATH) {
-        File file = new File(PATH);
+    public static File readFile(String path) {
+        File file = new File(path);
         if (file.exists()) {
             return file;
         }

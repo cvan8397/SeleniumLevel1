@@ -18,6 +18,6 @@ public abstract class DriverManager {
         if (null == driver) {
             createWebDriver();
         }
-        return this.driver;
+        return driver;
     }
 }

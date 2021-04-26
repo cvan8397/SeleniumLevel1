@@ -10,8 +10,7 @@ public class BookTicketPage extends GeneralPage {
     private final By arriveAt = By.name("ArriveStation");
     private final By seatType = By.name("SeatType");
     private final By ticketAmount = By.name("TicketAmount");
-    private final By btnBookTicket = By.xpath("//input[@type='submit']");
-    private final By lblBookSuccessfully = By.cssSelector("div[id='content'] h1");
+    private final By btnBookTicket = By.cssSelector("input[type='submit']");
     private final By lblBookTicketSuccessfully = By.cssSelector("div[id='content']>h1");
 
     //elements
@@ -40,7 +39,7 @@ public class BookTicketPage extends GeneralPage {
     }
 
     public WebElement getLblBookSuccessfully() {
-        return Constant.WEBDRIVER.findElement(lblBookSuccessfully);
+        return Constant.WEBDRIVER.findElement(lblBookTicketSuccessfully);
     }
 
     //Methods

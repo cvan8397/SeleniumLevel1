@@ -1,32 +1,38 @@
 package tests.test_case;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import helper.Common;
-import helper.Constant;
+import helper.models.Register;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import page_objects.HomePage;
-import page_objects.LoginPage;
 import page_objects.RegisterPage;
 
-public class RegisterTest extends TestBase {
-    @Test
-    public void TC01() {
-        System.out.println("TC01 - User can create new account with valid email and password");
-        HomePage homePage = new HomePage();
+import java.io.IOException;
+import java.util.List;
 
-        RegisterPage registerPage = new RegisterPage();
+public class RegisterTest extends TestBase {
+    HomePage homePage = new HomePage();
+    RegisterPage registerPage = new RegisterPage();
+
+    @DataProvider(name = "valid-register")
+    public static Object[] getValidRegisterData() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        List<Register> registers = objectMapper.readValue(Common.readFile("src/test/java/resources/data_driven/data-register/valid-register.json"), new TypeReference<List<Register>>() {
+        });
+        return registers.toArray();
+    }
+
+    @Test(dataProvider = "valid-register", description = "User can create successfully with valid data")
+    public void TC01(Register register) {
         homePage.gotoRegisterPage();
         Common.scrollPage();
-        registerPage.createAccount(Constant.EMAIL, Constant.PASSWORD1, Constant.CONFIRM, Constant.PID);
+        register.setEmail(Common.getRandomEmail());
+        registerPage.createAccount(register.getEmail(), register.getPassword(), register.getConfirm(), register.getPid());
         String actualMsg = registerPage.getCreateSuccessfullyMsg();
-        String expectedMsg = "Registration Confirmed! You can now log in to the site.";
+        String expectedMsg = register.getMessage();
         Assert.assertEquals(actualMsg, expectedMsg, "Register message is not displayed as expected");
-
-        LoginPage loginPage = new LoginPage();
-        homePage.gotoLoginPage();
-        loginPage.login(Constant.EMAIL, Constant.PASSWORD1);
-        String actualMsg1 = homePage.getWelcomeMsgText();
-        String expectedMsg1 = "Welcome " + Constant.EMAIL;
-        Assert.assertEquals(actualMsg1, expectedMsg1, "Welcome message is not displayed as expected");
     }
 }

@@ -1,28 +1,14 @@
-package helper.elements_helper;
+package helper;
 
-import helper.Constant;
+import helper.elements.BaseElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BaseElement {
-    private final By locator;
+public class ElementHelper extends BaseElement {
 
-    public BaseElement(By locator) {
-        this.locator = locator;
-    }
-
-    public WebElement findElement() {
-        return Constant.WEBDRIVER.findElement(locator);
-    }
-
-    public void click() {
-        findElement().click();
-    }
-
-    public String getText() {
-        return findElement().getText();
+    public ElementHelper(By locator) {
+        super(locator);
     }
 
     public static void waitElementExist(By locator, int seconds) {
