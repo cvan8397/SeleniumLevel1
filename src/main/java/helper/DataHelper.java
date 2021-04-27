@@ -22,9 +22,15 @@ public class DataHelper {
 
     public static String getDepartDateRandom() {
         Calendar cal = Calendar.getInstance();
-        int ranNum = ThreadLocalRandom.current().nextInt(3, 30);
+        int ranNum = ThreadLocalRandom.current().nextInt(4, 30);
         cal.add(Calendar.DATE, ranNum);
-        return new SimpleDateFormat("M/dd/yyyy").format(cal.getTime());
+        return new SimpleDateFormat("M/d/yyyy").format(cal.getTime());
+    }
+
+    public static String getDate(int num) {
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, num);
+        return new SimpleDateFormat("M/d/yyyy").format(cal.getTime());
     }
 
 }

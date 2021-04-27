@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
 public class BaseElement {
     private final By locator;
 
@@ -16,6 +18,10 @@ public class BaseElement {
         return Constant.WEBDRIVER.findElement(locator);
     }
 
+    public List<WebElement> findElements() {
+        return Constant.WEBDRIVER.findElements(locator);
+    }
+
     public void click() {
         findElement().click();
     }
@@ -24,9 +30,4 @@ public class BaseElement {
         return findElement().getText();
     }
 
-
-    public void selectDropdown(WebElement element, String text) {
-        Select dropdown = new Select(element);
-        dropdown.selectByVisibleText(text);
-    }
 }

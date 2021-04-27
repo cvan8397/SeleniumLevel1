@@ -24,6 +24,6 @@ public class LoginPage extends GeneralPage {
         this.btnLogin.click();
     }
     public String getTextLblLoginErrorMsg(){
-        return this.lblGeneralErrorMsg.getText() + this.lblEmailErrorMsg.getText() + this.lblPasswordErrorMsg.getText();
+        return (this.lblGeneralErrorMsg.getText() + this.lblEmailErrorMsg.getText() + this.lblPasswordErrorMsg.getText());
     }
 }

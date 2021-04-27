@@ -11,9 +11,9 @@ public class ElementHelper extends BaseElement {
         super(locator);
     }
 
-    public static void waitElementExist(By locator, int seconds) {
+    public static void waitElementExist(By locator, int seconds, String place) {
         WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, seconds);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(locator, place));
     }
 
     public boolean isDisplayed() {
