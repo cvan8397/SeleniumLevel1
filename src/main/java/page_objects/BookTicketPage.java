@@ -1,6 +1,10 @@
 package page_objects;
 
+import helper.BrowserHelper;
 import helper.Constant;
+import helper.elements.Button;
+import helper.elements.DropDownList;
+import javafx.scene.chart.PieChart;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -44,6 +48,7 @@ public class BookTicketPage extends GeneralPage {
 
     //Methods
     public void bookTicket(String departDate, String departFrom, String arriveAt, String seatType, String ticketAmount) {
+        BrowserHelper.scrollPage();
         this.getDepartDate().sendKeys(departDate);
         this.getDepartDate().sendKeys(departDate);
         this.getDepartFrom().sendKeys(departFrom);
@@ -51,5 +56,9 @@ public class BookTicketPage extends GeneralPage {
         this.getSeatType().sendKeys(seatType);
         this.getTicketAmount().sendKeys(ticketAmount);
         this.getBtnBookTicket().click();
+    }
+
+    public void checkInforTicket(){
+
     }
 }

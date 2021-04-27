@@ -1,5 +1,6 @@
 package page_objects;
 
+import helper.BrowserHelper;
 import helper.Common;
 import helper.elements.Button;
 import helper.elements.Label;
@@ -17,10 +18,10 @@ public class LoginPage extends GeneralPage {
 
     //Methods
     public void login(String username, String password) {
-        Common.scrollPage();
+        BrowserHelper.scrollPage();
         this.txtUsername.enterText(username);
         this.txtPassword.enterText(password);
-        this.btnLogin.click();;
+        this.btnLogin.click();
     }
     public String getTextLblLoginErrorMsg(){
         return this.lblGeneralErrorMsg.getText() + this.lblEmailErrorMsg.getText() + this.lblPasswordErrorMsg.getText();

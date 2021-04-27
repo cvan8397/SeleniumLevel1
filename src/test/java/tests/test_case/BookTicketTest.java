@@ -2,8 +2,10 @@ package tests.test_case;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import helper.BrowserHelper;
 import helper.Constant;
 import helper.Common;
+import helper.DataHelper;
 import helper.models.BookTicket;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -20,26 +22,15 @@ public class BookTicketTest extends TestBase {
     LoginPage loginPage = new LoginPage();
     BookTicketPage bookTicketPage = new BookTicketPage();
 
-    @DataProvider(name = "valid-bookTicket")
-    public static Object[] getValidBookTicket() throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        List<BookTicket> bookTickets = objectMapper.readValue(Common.readFile("src/test/java/resources/data_driven/data-bookTicket/data-bookTicket.json"), new TypeReference<List<BookTicket>>() {
-        });
-        return bookTickets.toArray();
 
-    }
-
-    @Test(dataProvider = "valid-bookTicket", description = "User can book ticket successfully")
-    public void TC01(BookTicket bookTicket) {
+    @Test(description = "User can book ticket successfully")
+    public void TC01() {
         homePage.gotoLoginPage();
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
         loginPage.gotoBookTicketPage();
-        Common.scrollPage();
-        bookTicket.setDepartDate(Common.getDepartFromRandom());
-        bookTicketPage.bookTicket(bookTicket.getDepartDate(), bookTicket.getDepartFrom(), bookTicket.getArriveAt(),
-                bookTicket.getSeatType(), bookTicket.getTicketAmount());
+        bookTicketPage.bookTicket(DataHelper.getDepartDateRandom(),Constant.DEPART_FROM, Constant.ARRIVE_AT, Constant.SEAT_TYPE, Constant.TICKET_AMOUNT);
         String actualMsg = bookTicketPage.getLblBookSuccessfully().getText();
-        String expectedMsg = bookTicket.getMessages();
+        String expectedMsg = "Ticket booked successfully!";
 
         Assert.assertEquals(actualMsg, expectedMsg, "BookTicket message is not displayed as expected");
     }

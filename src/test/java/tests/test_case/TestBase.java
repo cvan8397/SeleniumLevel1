@@ -1,25 +1,24 @@
 package tests.test_case;
 
-import helper.driver_manager.DriverManagerFactory;
+import helper.BrowserHelper;
 import helper.Constant;
+import org.openqa.selenium.Dimension;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
-import java.util.concurrent.TimeUnit;
 
 public class TestBase {
-    @BeforeSuite
+    @BeforeMethod
     public void beforeMethod() {
-        System.out.println("Pre-condition");
-
-        Constant.WEBDRIVER = DriverManagerFactory.getDriverManager(DriverManagerFactory.DriverType.CHROME).getWebDriver();
-        Constant.WEBDRIVER.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        BrowserHelper.startBrowser(BrowserHelper.DriverType.CHROME);
+        Constant.WEBDRIVER = BrowserHelper.getWebDriver();
         Constant.WEBDRIVER.get(Constant.RAILWAY_URL);
     }
 
-    @AfterSuite
-    public void afterMethod() {
-        System.out.println("Post-condition");
-        Constant.WEBDRIVER.quit();
+    @AfterMethod
+    public void closePage() {
+        BrowserHelper.quitBrowser();
     }
 }

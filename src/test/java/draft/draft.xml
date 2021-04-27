@@ -1,0 +1,7 @@
+@DataProvider(name = "validBookTicket")
+        public static Object[] getValidBookTicket() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        List<BookTicket> bookTickets = objectMapper.readValue(Common.readFile("src/test/java/resources/data_driven/data-bookTicket/data-bookTicket.json"), new TypeReference<List<BookTicket>>() {
+    });
+    return bookTickets.toArray();
+    }

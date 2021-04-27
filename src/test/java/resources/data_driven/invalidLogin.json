@@ -2,12 +2,12 @@
     {"description": "Login unsuccessfully with invalid account",
       "username": "VanViVu",
       "password": "123",
-      "messages": "Invalid username or password. Please try again."
+      "messages": "Invalid username or password. Please try again.        "
     },
    {"description": "Login unsuccessfully with blank password",
      "username": "vanvan@gmail.com",
      "password": "",
-     "messages": "There was a problem with your login and/or errors exist in your form.You must specify a password."
+     "messages": "There was a problem with your login and/or errors exist in your form. You must specify a password."
    },
    {"description": "Login unsuccessfully with blank email",
      "username": "",
