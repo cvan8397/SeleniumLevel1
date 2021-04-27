@@ -14,4 +14,6 @@ public class Constant {
     public static final String ARRIVE_AT = "Huế";
     public static final String SEAT_TYPE = "Soft bed";
     public static final String TICKET_AMOUNT = "2";
+    public static final String TICKETS_AMOUNT = "2";
+
 }
