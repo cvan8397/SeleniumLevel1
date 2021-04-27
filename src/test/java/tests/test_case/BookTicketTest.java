@@ -29,7 +29,7 @@ public class BookTicketTest extends TestBase {
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
         loginPage.gotoBookTicketPage();
         bookTicketPage.bookTicket(DataHelper.getDepartDateRandom(),Constant.DEPART_FROM, Constant.ARRIVE_AT, Constant.SEAT_TYPE, Constant.TICKET_AMOUNT);
-        String actualMsg = bookTicketPage.getLblBookSuccessfully().getText();
+        String actualMsg = bookTicketPage.getLblBookSuccessfully();
         String expectedMsg = "Ticket booked successfully!";
 
         Assert.assertEquals(actualMsg, expectedMsg, "BookTicket message is not displayed as expected");

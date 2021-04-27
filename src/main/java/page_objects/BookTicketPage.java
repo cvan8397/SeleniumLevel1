@@ -1,61 +1,36 @@
 package page_objects;
 
 import helper.BrowserHelper;
-import helper.Constant;
+import helper.DataHelper;
 import helper.elements.Button;
 import helper.elements.DropDownList;
-import javafx.scene.chart.PieChart;
+import helper.elements.Label;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 public class BookTicketPage extends GeneralPage {
-    private final By departDate = By.name("Date");
-    private final By departFrom = By.name("DepartStation");
-    private final By arriveAt = By.name("ArriveStation");
-    private final By seatType = By.name("SeatType");
-    private final By ticketAmount = By.name("TicketAmount");
-    private final By btnBookTicket = By.cssSelector("input[type='submit']");
-    private final By lblBookTicketSuccessfully = By.cssSelector("div[id='content']>h1");
+    private final DropDownList departDate = new DropDownList(By.name("Date"));
+    private final DropDownList departFrom = new DropDownList(By.name("DepartStation"));
+    private final DropDownList arriveAt = new DropDownList(By.name("ArriveStation"));
+    private final DropDownList seatType = new DropDownList(By.name("SeatType"));
+    private final DropDownList ticketAmount = new DropDownList(By.name("TicketAmount"));
+    private final Button btnBookTicket = new Button(By.cssSelector("input[type='submit']"));
+    private final Label lblBookTicketSuccessfully = new Label(By.cssSelector("div[id='content']>h1"));
 
-    //elements
-    public WebElement getDepartDate() {
-        return Constant.WEBDRIVER.findElement(departDate);
-    }
+    private final Label departDateCheck= new Label(By.cssSelector("div[id='content']>h1"));
 
-    public WebElement getDepartFrom() {
-        return Constant.WEBDRIVER.findElement(departFrom);
-    }
-
-    public WebElement getArriveAt() {
-        return Constant.WEBDRIVER.findElement(arriveAt);
-    }
-
-    public WebElement getSeatType() {
-        return Constant.WEBDRIVER.findElement(seatType);
-    }
-
-    public WebElement getTicketAmount() {
-        return Constant.WEBDRIVER.findElement(ticketAmount);
-    }
-
-    public WebElement getBtnBookTicket() {
-        return Constant.WEBDRIVER.findElement(btnBookTicket);
-    }
-
-    public WebElement getLblBookSuccessfully() {
-        return Constant.WEBDRIVER.findElement(lblBookTicketSuccessfully);
+    public String getLblBookSuccessfully() {
+        return this.lblBookTicketSuccessfully.getText();
     }
 
     //Methods
     public void bookTicket(String departDate, String departFrom, String arriveAt, String seatType, String ticketAmount) {
         BrowserHelper.scrollPage();
-        this.getDepartDate().sendKeys(departDate);
-        this.getDepartDate().sendKeys(departDate);
-        this.getDepartFrom().sendKeys(departFrom);
-        this.getArriveAt().sendKeys(arriveAt);
-        this.getSeatType().sendKeys(seatType);
-        this.getTicketAmount().sendKeys(ticketAmount);
-        this.getBtnBookTicket().click();
+        this.departDate.selectDropdown(departDate);
+        this.departFrom.selectDropdown(departFrom);
+        this.arriveAt.selectDropdown(arriveAt);
+        this.seatType.selectDropdown(seatType);
+        this.ticketAmount.selectDropdown(ticketAmount);
+        this.btnBookTicket.click();
     }
 
     public void checkInforTicket(){

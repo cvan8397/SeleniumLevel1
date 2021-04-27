@@ -9,8 +9,8 @@ public class DropDownList extends BaseElement{
         super(locator);
     }
 
-    public void selectDropdown(WebElement element, String text) {
-        Select dropdown = new Select(element);
+    public void selectDropdown(String text) {
+        Select dropdown = new Select(findElement());
         dropdown.selectByVisibleText(text);
     }
 }
