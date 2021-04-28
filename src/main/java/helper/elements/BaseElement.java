@@ -35,30 +35,4 @@ public class BaseElement {
         return findElement().getText();
     }
 
-    public void waitForElementVisible() {
-        WebDriverWait webDriverWait = new WebDriverWait(BrowserHelper.getWebDriver(), Constant.WAIT_ELEMENT_TIME);
-        webDriverWait.until(ExpectedConditions.visibilityOf(findElement()));
-    }
-
-    public void waitForElementInVisible() {
-        WebDriverWait webDriverWait = new WebDriverWait(BrowserHelper.getWebDriver(), Constant.WAIT_ELEMENT_TIME);
-        webDriverWait.until(ExpectedConditions.invisibilityOf(findElement()));
-    }
-    public void waitForElement(By locator, By Child) {
-        WebDriverWait webDriverWait = new WebDriverWait(BrowserHelper.getWebDriver(), Constant.WAIT_ELEMENT_TIME);
-        webDriverWait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(locator,Child));
-    }
-
-    public void waitForElementReload() {
-        try {
-            waitForElementInVisible();
-        } catch (TimeoutException e) {
-            waitForElementVisible();
-        }
-    }
-
-    public void submit(){
-        findElement().submit();
-    }
-
 }

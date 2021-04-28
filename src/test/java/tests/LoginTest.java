@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import helper.Common;
 import helper.Constant;
-import helper.models.Login;
+import helper.models.Account;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -16,34 +16,46 @@ import java.util.List;
 
 public class LoginTest extends TestBase {
     public static String invalidPath = "src/test/java/resources/data_driven/invalidLogin.json";
+    String invalidUsername = "cloud";
+    String invalidPwd = "1234";
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
 
-    @Test( description = "Login successfully with valid account")
+    @Test(description = "Login successfully with valid account")
     public void TC01() {
         homePage.gotoLoginPage();
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
         String actualResult = homePage.getWelcomeMsgText();
-        String expectedResult = "Welcome "+ Constant.USERNAME;
+        String expectedResult = "Welcome " + Constant.USERNAME;
         homePage.logout();
 
         Assert.assertEquals(actualResult, expectedResult, "Welcome message is not displayed as expected");
     }
 
-    @DataProvider(name = "invalid-login")
+    @Test(description = "Login unsuccessfully with invalid account")
+    public void TC02() {
+        homePage.gotoLoginPage();
+        loginPage.login(invalidUsername, invalidPwd);
+        String actualMsg = loginPage.getTextLblLoginErrorMsg();
+        String expectedMsg = "Invalid username or password. Please try again.";
+
+        Assert.assertEquals(actualMsg, expectedMsg, "Errors message is not displayed as expected");
+    }
+
+    @DataProvider(name = "invalidLogin")
     public static Object[] getInvalidLoginData() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        List<Login> logins = objectMapper.readValue(Common.readFile(invalidPath), new TypeReference<List<Login>>() {
+        List<Account> logins = objectMapper.readValue(Common.readFile(invalidPath), new TypeReference<List<Account>>() {
         });
         return logins.toArray();
     }
 
-    @Test(dataProvider = "invalid-login")
-    public void TC02(Login login) {
+    @Test(dataProvider = "invalidLogin", description = "Login unsuccessfully with blank fields")
+    public void TC03(Account account) {
         homePage.gotoLoginPage();
-        loginPage.login(login.getUsername(), login.getPassword());
+        loginPage.login(account.getUsername(), account.getPassword());
         String actualMsg = loginPage.getTextLblLoginErrorMsg();
-        String expectedMsg = login.getMessages();
+        String expectedMsg = "There was a problem with your login and/or errors exist in your form.";
 
         Assert.assertEquals(actualMsg, expectedMsg, "Errors message is not displayed as expected");
     }

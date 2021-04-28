@@ -1,34 +1,40 @@
 package page_objects;
 
+import helper.elements.Label;
 import helper.elements.Tab;
 import org.openqa.selenium.By;
 
 public class GeneralPage {
-    //locators
-    private final Tab tabLogin = new Tab(By.cssSelector("a[href='/Account/Login.cshtml']"));
-    private final Tab tabRegister = new Tab(By.cssSelector("a[href='/Account/Register.cshtml']"));
-    private final Tab tabBookTicket = new Tab(By.cssSelector("a[href='/Page/BookTicketPage.cshtml']>span"));
-    private final Tab tabLogOut = new Tab(By.cssSelector("a[href='/Account/Logout']>span"));
-    private final Tab tabChangePwd = new Tab(By.cssSelector("a[href='/Account/ChangePassword.cshtml"));
+
+    private final Tab loginTab = new Tab(By.cssSelector("a[href='/Account/Login.cshtml']"));
+    private final Tab registerTab = new Tab(By.cssSelector("a[href='/Account/Register.cshtml']"));
+    private final Tab bookTicketTab = new Tab(By.cssSelector("a[href='/Page/BookTicketPage.cshtml']>span"));
+    private final Tab logOutTab = new Tab(By.cssSelector("a[href='/Account/Logout']>span"));
+    private final Tab changePwdTab = new Tab(By.cssSelector("a[href='/Account/ChangePassword.cshtml"));
+    private final Label lblWelcomeMessage = new Label(By.cssSelector("div[class='account']>strong"));
 
     public void gotoRegisterPage() {
-        this.tabRegister.click();
+        this.registerTab.click();
     }
 
     public void gotoLoginPage() {
-        this.tabLogin.click();
+        this.loginTab.click();
     }
 
-    public void gotoBookTicketPage(){
-        this.tabBookTicket.click();
+    public void gotoBookTicketPage() {
+        this.bookTicketTab.click();
     }
 
-    public void gotoChangePasswordPage(){
-        this.tabChangePwd.click();
+    public void gotoChangePasswordPage() {
+        this.changePwdTab.click();
     }
 
     public void logout() {
-        this.tabLogOut.click();
+        this.logOutTab.click();
+    }
+
+    public String getWelcomeMsgText(){
+        return this.lblWelcomeMessage.getText();
     }
 
 }

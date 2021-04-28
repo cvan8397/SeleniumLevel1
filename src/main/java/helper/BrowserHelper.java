@@ -56,9 +56,21 @@ public class BrowserHelper {
         js.executeScript("arguments[0].scrollIntoView();", element);
     }
 
-
     public static void scrollPage() {
         JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
         js.executeScript("window.scrollBy(0,500)");
+    }
+
+    public static void cancelAlert(){
+        driver.switchTo().alert().dismiss();
+    }
+
+    public static void acceptAlert(){
+        driver.switchTo().alert().accept();
+    }
+
+    //getAlertText()
+    public static String getTextAlert(){
+        return driver.switchTo().alert().getText();
     }
 }

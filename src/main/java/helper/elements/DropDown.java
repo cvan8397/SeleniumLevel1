@@ -3,8 +3,8 @@ package helper.elements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
-public class DropDownList extends BaseElement{
-    public DropDownList(By locator) {
+public class DropDown extends BaseElement{
+    public DropDown(By locator) {
         super(locator);
     }
 

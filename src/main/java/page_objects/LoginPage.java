@@ -1,7 +1,6 @@
 package page_objects;
 
 import helper.BrowserHelper;
-import helper.Common;
 import helper.elements.Button;
 import helper.elements.Label;
 import helper.elements.TextBox;
@@ -15,8 +14,6 @@ public class LoginPage extends GeneralPage {
     private final Label lblEmailErrorMsg = new Label(By.cssSelector("[for=username].validation-error"));
     private final Label lblPasswordErrorMsg = new Label(By.cssSelector("[for=password].validation-error"));
 
-
-    //Methods
     public void login(String username, String password) {
         BrowserHelper.scrollPage();
         this.txtUsername.enterText(username);
@@ -25,6 +22,6 @@ public class LoginPage extends GeneralPage {
     }
 
     public String getTextLblLoginErrorMsg() {
-        return (this.lblGeneralErrorMsg.getText() + this.lblEmailErrorMsg.getText() + this.lblPasswordErrorMsg.getText());
+        return this.lblGeneralErrorMsg.getText();
     }
 }

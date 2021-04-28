@@ -21,14 +21,14 @@ public class DataHelper {
         return faker.numerify("##########");
     }
 
-    public static String getDepartDateRandom() {
+    public static String getRandomDepartDate() {
         Calendar cal = Calendar.getInstance();
         int ranNum = ThreadLocalRandom.current().nextInt(4, 30);
         cal.add(Calendar.DATE, ranNum);
         return new SimpleDateFormat("M/d/yyyy").format(cal.getTime());
     }
 
-    public static String getDate(int num) {
+    public static String getDateFromToday(int num) {
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, num);
         return new SimpleDateFormat("M/d/yyyy").format(cal.getTime());

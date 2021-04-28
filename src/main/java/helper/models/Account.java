@@ -1,10 +1,9 @@
 package helper.models;
 
-public class Login {
+public class Account {
     private String description;
     private String username;
     private String password;
-    private String messages;
 
     public String getDescription() {
         return description;
@@ -30,11 +29,4 @@ public class Login {
         this.password = password;
     }
 
-    public String getMessages() {
-        return messages;
-    }
-
-    public void setMessages(String messages) {
-        this.messages = messages;
-    }
 }

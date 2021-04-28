@@ -18,8 +18,9 @@ public class RegisterTest extends TestBase {
         BrowserHelper.scrollPage();
         String randomPassword = DataHelper.getRandomPassword();
         registerPage.createAccount(DataHelper.getRandomEmail(), randomPassword, randomPassword, DataHelper.getRandomPID());
-        String actualMsg = registerPage.getCreateSuccessfullyMsg();
+        String actualMsg = registerPage.getSuccessfullyMsg();
         String expectedMsg = "You're here" ;
+
         Assert.assertEquals(actualMsg, expectedMsg, "Register message is not displayed as expected");
     }
 }
