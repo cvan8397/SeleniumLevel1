@@ -1,14 +1,11 @@
-package tests.test_case;
+package tests;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import helper.Common;
 import helper.Constant;
 import helper.models.Login;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import page_objects.HomePage;

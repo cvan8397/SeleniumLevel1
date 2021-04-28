@@ -1,4 +1,4 @@
-package tests.test_case;
+package tests;
 
 import helper.Constant;
 import helper.DataHelper;
@@ -10,11 +10,15 @@ import page_objects.LoginPage;
 
 
 public class BookTicketTest extends TestBase {
+    String departFrom = "Đà Nẵng";
+    String arriveAt = "Huế";
+    String seatType = "Soft bed";
+    String ticketAmount = "1";
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
     BookTicketPage bookTicketPage = new BookTicketPage();
     String bookDate = DataHelper.getDate(0);
-    String expiredDate = DataHelper.getDate(3);
+    String expiredDate = DataHelper.getDate(2);
 
     @Test(description = "User can book ticket successfully")
     public void TC01() {
@@ -22,16 +26,15 @@ public class BookTicketTest extends TestBase {
         homePage.gotoLoginPage();
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
         loginPage.gotoBookTicketPage();
-        bookTicketPage.bookTicket(departDate, Constant.DEPART_FROM, Constant.ARRIVE_AT, Constant.SEAT_TYPE, Constant.TICKET_AMOUNT);
+        bookTicketPage.bookTicket(departDate, departFrom, arriveAt, seatType, ticketAmount);
         System.out.println(departDate);
         String actualMsg = bookTicketPage.getLblBookSuccessfully();
         String expectedMsg = "Ticket Booked Successfully!";
 
         Assert.assertEquals(actualMsg, expectedMsg, "BookTicket message is not displayed as expected");
 
-        String actualInfoTicket = bookTicketPage.checkInfoTicket();
-        String expectedInfoTicket = Constant.DEPART_FROM + Constant.ARRIVE_AT + Constant.SEAT_TYPE  + departDate +
-                bookDate + expiredDate + Constant.TICKET_AMOUNT;
+        String actualInfoTicket = bookTicketPage.checkTicket();
+        String expectedInfoTicket = departFrom + arriveAt + seatType + departDate + bookDate + expiredDate + ticketAmount;
 
         Assert.assertEquals(actualInfoTicket, expectedInfoTicket, "Information of tickets are not displayed as expected");
     }

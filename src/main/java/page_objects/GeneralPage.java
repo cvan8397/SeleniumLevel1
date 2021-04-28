@@ -9,6 +9,7 @@ public class GeneralPage {
     private final Tab tabRegister = new Tab(By.cssSelector("a[href='/Account/Register.cshtml']"));
     private final Tab tabBookTicket = new Tab(By.cssSelector("a[href='/Page/BookTicketPage.cshtml']>span"));
     private final Tab tabLogOut = new Tab(By.cssSelector("a[href='/Account/Logout']>span"));
+    private final Tab tabChangePwd = new Tab(By.cssSelector("a[href='/Account/ChangePassword.cshtml"));
 
     public void gotoRegisterPage() {
         this.tabRegister.click();
@@ -20,6 +21,10 @@ public class GeneralPage {
 
     public void gotoBookTicketPage(){
         this.tabBookTicket.click();
+    }
+
+    public void gotoChangePasswordPage(){
+        this.tabChangePwd.click();
     }
 
     public void logout() {

@@ -1,4 +1,4 @@
-package tests.test_case;
+package tests;
 
 import helper.BrowserHelper;
 import helper.DataHelper;

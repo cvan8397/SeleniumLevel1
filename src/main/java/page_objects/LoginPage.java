@@ -13,7 +13,7 @@ public class LoginPage extends GeneralPage {
     private final Button btnLogin = new Button(By.cssSelector("input[type='submit']"));
     private final Label lblGeneralErrorMsg = new Label(By.cssSelector(".message.error.LoginForm"));
     private final Label lblEmailErrorMsg = new Label(By.cssSelector("[for=username].validation-error"));
-    private final Label lblPasswordErrorMsg= new Label(By.cssSelector("[for=password].validation-error"));
+    private final Label lblPasswordErrorMsg = new Label(By.cssSelector("[for=password].validation-error"));
 
 
     //Methods
@@ -23,7 +23,8 @@ public class LoginPage extends GeneralPage {
         this.txtPassword.enterText(password);
         this.btnLogin.click();
     }
-    public String getTextLblLoginErrorMsg(){
+
+    public String getTextLblLoginErrorMsg() {
         return (this.lblGeneralErrorMsg.getText() + this.lblEmailErrorMsg.getText() + this.lblPasswordErrorMsg.getText());
     }
 }

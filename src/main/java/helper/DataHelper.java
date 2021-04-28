@@ -8,6 +8,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class DataHelper {
     static Faker faker = new Faker();
+
     public static String getRandomEmail() {
         return faker.bothify("Van########@gmail.com");
     }
