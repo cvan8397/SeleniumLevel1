@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import helper.Common;
 import helper.Constant;
+import helper.Log;
 import helper.models.Account;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -15,28 +16,28 @@ import java.io.IOException;
 import java.util.List;
 
 public class LoginTest extends TestBase {
-    public static String invalidPath = "src/test/java/resources/data_driven/invalidLogin.json";
+    public static String invalidPath = "src/test/resources/data_driven/invalidLogin.json";
     String invalidUsername = "cloud";
     String invalidPwd = "1234";
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
 
-    @Test(description = "Login successfully with valid account")
+    @Test(description = "User can login successfully with valid account")
     public void TC01() {
+        Log.startTestCase("TC01 - User can login successfully with valid account ");
         homePage.gotoLoginPage();
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
         String actualResult = homePage.getWelcomeMsgText();
         String expectedResult = "Welcome " + Constant.USERNAME;
-        homePage.logout();
 
         Assert.assertEquals(actualResult, expectedResult, "Welcome message is not displayed as expected");
     }
 
-    @Test(description = "Login unsuccessfully with invalid account")
+    @Test(description = "User can not login unsuccessfully with invalid account")
     public void TC02() {
         homePage.gotoLoginPage();
         loginPage.login(invalidUsername, invalidPwd);
-        String actualMsg = loginPage.getTextLblLoginErrorMsg();
+        String actualMsg = loginPage.getLoginErrorMsgText();
         String expectedMsg = "Invalid username or password. Please try again.";
 
         Assert.assertEquals(actualMsg, expectedMsg, "Errors message is not displayed as expected");
@@ -50,11 +51,11 @@ public class LoginTest extends TestBase {
         return logins.toArray();
     }
 
-    @Test(dataProvider = "invalidLogin", description = "Login unsuccessfully with blank fields")
+    @Test(dataProvider = "invalidLogin", description = "User can not login unsuccessfully with blank fields")
     public void TC03(Account account) {
         homePage.gotoLoginPage();
         loginPage.login(account.getUsername(), account.getPassword());
-        String actualMsg = loginPage.getTextLblLoginErrorMsg();
+        String actualMsg = loginPage.getLoginErrorMsgText();
         String expectedMsg = "There was a problem with your login and/or errors exist in your form.";
 
         Assert.assertEquals(actualMsg, expectedMsg, "Errors message is not displayed as expected");

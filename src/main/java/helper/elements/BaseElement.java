@@ -2,14 +2,11 @@ package helper.elements;
 
 import helper.BrowserHelper;
 import helper.Constant;
+import helper.Log;
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 
 public class BaseElement {
@@ -20,11 +17,16 @@ public class BaseElement {
     }
 
     public WebElement findElement() {
-        return Constant.WEBDRIVER.findElement(locator);
+        return BrowserHelper.getWebDriver().findElement(locator);
     }
 
     public List<WebElement> findElements() {
-        return Constant.WEBDRIVER.findElements(locator);
+        return BrowserHelper.getWebDriver().findElements(locator);
+    }
+
+    public void scrollToView() {
+        JavascriptExecutor js = (JavascriptExecutor) BrowserHelper.getWebDriver();
+        js.executeScript("arguments[0].scrollIntoView(true);", findElement());
     }
 
     public void click() {
@@ -35,4 +37,16 @@ public class BaseElement {
         return findElement().getText();
     }
 
+    public boolean isDisplayed() {
+        try {
+            return findElement().isDisplayed();
+        } catch (Exception e) {
+            Log.info("Element is not displayed");
+            return false;
+        }
+    }
+
+    public boolean isEnabled() {
+        return findElement().isEnabled();
+    }
 }

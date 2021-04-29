@@ -9,6 +9,4 @@ public class Constant {
     public static final long DEFAULT_TIME_WAIT = 15;
     public static final long WAIT_ELEMENT_TIME = 10;
 
-    public static WebDriver WEBDRIVER;
-
 }

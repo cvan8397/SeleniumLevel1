@@ -1,30 +1,20 @@
 package helper;
 
-import helper.elements.BaseElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ElementHelper extends BaseElement {
+import javax.lang.model.element.Element;
 
-    public ElementHelper(By locator) {
-        super(locator);
-    }
-
+public class ElementHelper {
     public static void waitElementExist(By locator, int seconds, String place) {
-        WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, seconds);
+        WebDriverWait wait = new WebDriverWait(BrowserHelper.getWebDriver(), seconds);
         wait.until(ExpectedConditions.textToBePresentInElementLocated(locator, place));
     }
 
-    public boolean isDisplayed() {
-        try {
-            return findElement().isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    public boolean isEnabled() {
-        return findElement().isEnabled();
+    public static void notStalenessOf(WebElement element, int seconds) {
+        WebDriverWait wait = new WebDriverWait(BrowserHelper.getWebDriver(), seconds);
+        wait.until(ExpectedConditions.not(ExpectedConditions.stalenessOf(element)));
     }
 }

@@ -15,13 +15,13 @@ public class LoginPage extends GeneralPage {
     private final Label lblPasswordErrorMsg = new Label(By.cssSelector("[for=password].validation-error"));
 
     public void login(String username, String password) {
-        BrowserHelper.scrollPage();
+        this.btnLogin.scrollToView();
         this.txtUsername.enterText(username);
         this.txtPassword.enterText(password);
         this.btnLogin.click();
     }
 
-    public String getTextLblLoginErrorMsg() {
+    public String getLoginErrorMsgText() {
         return this.lblGeneralErrorMsg.getText();
     }
 }

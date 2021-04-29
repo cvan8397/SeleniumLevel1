@@ -2,15 +2,14 @@ package tests;
 
 import helper.BrowserHelper;
 import helper.Constant;
-import org.testng.annotations.*;
-
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 public class TestBase {
     @BeforeMethod
-    public void beforeMethod() {
+    public void setup() {
         BrowserHelper.startBrowser(BrowserHelper.DriverType.CHROME);
-        Constant.WEBDRIVER = BrowserHelper.getWebDriver();
-        Constant.WEBDRIVER.get(Constant.RAILWAY_URL);
+        BrowserHelper.navigateToUrl(Constant.RAILWAY_URL);
     }
 
     @AfterMethod
