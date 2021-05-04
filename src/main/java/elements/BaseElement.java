@@ -1,7 +1,6 @@
-package helper.elements;
+package elements;
 
 import helper.BrowserHelper;
-import helper.Constant;
 import helper.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

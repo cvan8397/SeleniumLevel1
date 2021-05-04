@@ -1,4 +1,4 @@
-package helper.models;
+package models;
 
 public class Account {
     private String description;
