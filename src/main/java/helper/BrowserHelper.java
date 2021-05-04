@@ -1,19 +1,18 @@
 package helper;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
 
 import java.util.concurrent.TimeUnit;
 
 public class BrowserHelper {
     private static WebDriver driver;
 
-    public enum DriverType {CHROME, FIREFOX, EDGE}
+    public enum DriverType {CHROME, FIREFOX, EDGE, OPERA}
 
     public static void startBrowser(DriverType type) {
         switch (type) {
@@ -29,8 +28,11 @@ public class BrowserHelper {
                 WebDriverManager.edgedriver().setup();
                 driver = new EdgeDriver();
                 break;
+            case OPERA:
+                WebDriverManager.operadriver().setup();
+                driver = new OperaDriver();
             default:
-                System.out.println("You're in a big trouble!I'm just kidding.");
+                System.out.println("..........");
                 break;
         }
         driver.manage().timeouts().implicitlyWait(Constant.DEFAULT_TIME_WAIT, TimeUnit.SECONDS);
