@@ -11,7 +11,7 @@ public class GeneralPage {
     private final Tab logOutTab = new Tab(By.cssSelector("a[href='/Account/Logout']>span"));
     private final Tab changePwdTab = new Tab(By.cssSelector("a[href='/Account/ChangePassword.cshtml']"));
     private final Tab MyTicketTab = new Tab(By.cssSelector("a[href='/Page/ManageTicket.cshtml']"));
-    private final Label lblWelcomeMessage = new Label(By.cssSelector("div[class='account']>strong"));
+    private final Label lblWelcomeMessage = new Label(By.cssSelector(".account"));
 
     public void gotoRegisterPage() {
         this.registerTab.click();
