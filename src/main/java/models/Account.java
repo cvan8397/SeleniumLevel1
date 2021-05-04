@@ -1,17 +1,10 @@
 package models;
 
 public class Account {
-    private String description;
     private String username;
     private String password;
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    private String confirmPassword;
+    private String pid;
 
     public String getUsername() {
         return username;
@@ -29,4 +22,24 @@ public class Account {
         this.password = password;
     }
 
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+    public String getPid() {
+        return pid;
+    }
+
+    public void setPid(String pid) {
+        this.pid = pid;
+    }
+
+    public Account(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 }
