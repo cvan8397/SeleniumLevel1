@@ -12,7 +12,7 @@ public class TC02 extends TestBase{
     LoginPage loginPage = new LoginPage();
 
     @Test(description = "User can login successfully with valid username and password")
-    public void testCase01() {
+    public void testCase02() {
         Account account = new Account(Constant.USERNAME, Constant.PASSWORD);
         homePage.gotoLoginPage();
         loginPage.login(account);
