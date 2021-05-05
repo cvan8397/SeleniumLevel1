@@ -4,6 +4,7 @@
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.TC01" />
+            <class name="tests.TC02" />
         </classes>
     </test>
 </suite>
