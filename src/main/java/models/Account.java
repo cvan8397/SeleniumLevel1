@@ -3,7 +3,6 @@ package models;
 public class Account {
     private String username;
     private String password;
-    private String confirmPassword;
     private String pid;
 
     public String getUsername() {
@@ -22,14 +21,6 @@ public class Account {
         this.password = password;
     }
 
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
-
     public String getPid() {
         return pid;
     }
@@ -42,5 +33,4 @@ public class Account {
         this.username = username;
         this.password = password;
     }
-
 }
