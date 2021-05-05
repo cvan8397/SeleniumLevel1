@@ -68,4 +68,8 @@ public class BrowserHelper {
     public static String getAlertText() {
         return driver.switchTo().alert().getText();
     }
+
+    public static String getTitle() {
+        return driver.getTitle();
+    }
 }
