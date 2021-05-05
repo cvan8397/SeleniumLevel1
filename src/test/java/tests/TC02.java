@@ -13,7 +13,7 @@ public class TC02 extends TestBase {
     String blank = "";
 
     @Test(description = "User can't login with blank 'Username' textbox")
-    public void testCase03() {
+    public void testCase02() {
         Account account = new Account(blank, Constant.PASSWORD);
         homePage.gotoLoginPage();
         loginPage.login(account);
