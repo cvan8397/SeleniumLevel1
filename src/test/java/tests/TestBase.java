@@ -8,8 +8,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-import java.util.Locale;
-
 public class TestBase {
     @BeforeMethod
     @Parameters("browser")
