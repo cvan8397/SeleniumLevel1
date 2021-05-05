@@ -20,8 +20,4 @@ public class LoginPage extends GeneralPage {
         this.txtPassword.enterText(account.getPassword());
         this.btnLogin.click();
     }
-
-    public String getGeneralErrorMsg() {
-        return this.lblGeneralErrorMsg.getText();
-    }
 }
