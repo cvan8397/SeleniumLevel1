@@ -3,7 +3,7 @@
     <test name="Chrome Test">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="tests.TC02" />
+            <class name="tests.TC01" />
         </classes>
     </test>
 </suite>
