@@ -19,6 +19,7 @@ public class TestBase {
     }
 
     @AfterMethod
-    public void closePage() {
+    public void afterMethod() {
+        BrowserHelper.quitBrowser();
     }
 }
