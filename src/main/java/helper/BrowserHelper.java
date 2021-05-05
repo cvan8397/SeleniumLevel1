@@ -53,7 +53,7 @@ public class BrowserHelper {
         getWebDriver().get(url);
     }
 
-    public static void maximizeBrowser(){
+    public static void maximizeBrowser() {
         driver.manage().window().maximize();
     }
 
