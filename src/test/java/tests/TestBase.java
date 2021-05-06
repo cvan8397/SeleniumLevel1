@@ -11,14 +11,14 @@ import org.testng.annotations.Parameters;
 public class TestBase {
     @BeforeMethod
     @Parameters("browser")
-    public void setup (@Optional("chrome") String browser) {
+    public void setup(@Optional("chrome") String browser) {
         Log.info("Pre-condition");
         BrowserHelper.startBrowser(BrowserHelper.DriverType.valueOf(browser.toUpperCase()));
         BrowserHelper.navigateToUrl(Constant.RAILWAY_URL);
     }
 
     @AfterMethod
-    public void closePage() {
+    public void afterMethod() {
         BrowserHelper.quitBrowser();
     }
 }
