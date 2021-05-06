@@ -21,10 +21,10 @@ public class TC06_UserIsRedirectedToHomePageAfterLoggingOut extends TestBase {
         loginPage.gotoContactPage();
         contactPage.logout();
 
-        String actualResult = homePage.getWelcomeRailWayText();
-        String expectedResult = "Welcome to Safe Railway";
+        String actualHeader = homePage.getWelcomeRailWayText();
+        String expectedHeader = "Welcome to Safe Railway";
 
-        Assert.assertEquals(actualResult, expectedResult, "Home page is not displayed as expected");
+        Assert.assertEquals(actualHeader, expectedHeader, "Home page is not displayed as expected");
         Assert.assertFalse(homePage.isLogoutTabDisplayed(), "Logout tab is not disappeared");
     }
 }
