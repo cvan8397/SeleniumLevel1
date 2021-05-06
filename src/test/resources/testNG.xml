@@ -4,11 +4,8 @@
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.TC01_UserCanLoginWithValidAccount" />
-<<<<<<< HEAD
-            <class name="tests.TC03_UserCannotLoginWithInvalidPassword" />
-=======
             <class name="tests.TC02_UserCanNotLoginWithBlankUsername" />
->>>>>>> master
+            <class name="tests.TC03_UserCannotLoginWithInvalidPassword" />
         </classes>
     </test>
 </suite>
