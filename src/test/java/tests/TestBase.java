@@ -19,6 +19,7 @@ public class TestBase {
 
     @AfterMethod
     public void afterMethod() {
+        Log.info("Post-condition");
         BrowserHelper.quitBrowser();
     }
 }
