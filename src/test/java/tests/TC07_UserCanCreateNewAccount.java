@@ -17,9 +17,9 @@ public class TC07_UserCanCreateNewAccount extends TestBase {
         homePage.gotoRegisterPage();
         registerPage.createAccount(account);
 
-        String actualMsg = registerPage.getSuccessfulMessage();
-        String expectedMsg = "Thank you for registering your account";
+        String actualMessage = registerPage.getSuccessfulMessage();
+        String expectedMessage = "Thank you for registering your account";
 
-        Assert.assertEquals(actualMsg, expectedMsg, "Register message is not displayed as expected");
+        Assert.assertEquals(actualMessage, expectedMessage, "Register message is not displayed as expected");
     }
 }
