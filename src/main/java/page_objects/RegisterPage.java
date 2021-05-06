@@ -12,7 +12,7 @@ public class RegisterPage extends GeneralPage {
     private final TextBox txtConfirmPassword = new TextBox(By.id("confirmPassword"));
     private final TextBox txtPid = new TextBox(By.id("pid"));
     private final Button btnRegister = new Button(By.cssSelector("input[title='Register']"));
-    private final Label lblSuccessfullyMessage = new Label(By.id("content"));
+    private final Label lblSuccessfulMessage = new Label(By.id("content"));
 
     public void createAccount(Account account) {
         this.btnRegister.scrollToView();
@@ -24,6 +24,6 @@ public class RegisterPage extends GeneralPage {
     }
 
     public String getSuccessfulMessage() {
-        return lblSuccessfullyMessage.getText();
+        return lblSuccessfulMessage.getText();
     }
 }
