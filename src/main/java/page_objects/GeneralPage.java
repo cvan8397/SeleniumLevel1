@@ -42,7 +42,7 @@ public class GeneralPage {
         this.logOutTab.click();
     }
 
-    public String getWelcomeMsgText() {
+    public String getWelcomeMessage() {
         return this.lblWelcomeMessage.getText();
     }
 

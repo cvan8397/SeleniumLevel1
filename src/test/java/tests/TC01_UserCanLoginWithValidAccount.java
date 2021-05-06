@@ -17,7 +17,7 @@ public class TC01_UserCanLoginWithValidAccount extends TestBase {
         homePage.gotoLoginPage();
         loginPage.login(account);
 
-        String actualResult = homePage.getWelcomeMsgText();
+        String actualResult = homePage.getWelcomeMessage();
         String expectedResult = "Welcome " + Constant.USERNAME;
 
         Assert.assertEquals(actualResult, expectedResult, "Welcome message is not displayed as expected");
