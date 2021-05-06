@@ -33,4 +33,10 @@ public class Account {
         this.username = username;
         this.password = password;
     }
+
+    public Account(String username, String password, String pid) {
+        this.username = username;
+        this.password = password;
+        this.pid = pid;
+    }
 }
