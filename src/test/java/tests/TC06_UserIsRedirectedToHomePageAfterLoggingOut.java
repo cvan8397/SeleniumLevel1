@@ -1,6 +1,5 @@
 package tests;
 
-import helper.BrowserHelper;
 import helper.Constant;
 import models.Account;
 import org.testng.Assert;
@@ -22,10 +21,10 @@ public class TC06_UserIsRedirectedToHomePageAfterLoggingOut extends TestBase {
         loginPage.gotoContactPage();
         contactPage.logout();
 
-        String actualResult = BrowserHelper.getTitle();
-        String expectedResult = "Safe Railway - Selenium Automation";
+        String actualResult = homePage.getWelcomeRailWayText();
+        String expectedResult = "Welcome to Safe Railway";
 
         Assert.assertEquals(actualResult, expectedResult, "Home page is not displayed as expected");
-        Assert.assertFalse(homePage.checkLogoutTabExits(), "Logout tab is not disappeared");
+        Assert.assertFalse(homePage.isLogoutTabDisplayed(), "Logout tab is not disappeared");
     }
 }

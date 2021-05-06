@@ -47,6 +47,6 @@ public class GeneralPage {
     }
 
     public boolean isLogoutTabDisplayed() {
-        return this.ContactTab.isDisplayed();
+        return this.logOutTab.isDisplayed();
     }
 }
