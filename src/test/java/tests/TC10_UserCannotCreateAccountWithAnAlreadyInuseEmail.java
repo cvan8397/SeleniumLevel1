@@ -18,7 +18,7 @@ public class TC10_UserCannotCreateAccountWithAnAlreadyInuseEmail extends TestBas
         homePage.gotoRegisterPage();
         registerPage.createAccount(account);
 
-        String actualMessage = registerPage.getErrorMessage();
+        String actualMessage = registerPage.getGeneralErrorMessage();
         String expectedMessage = "This email address is already in use.";
 
         Assert.assertEquals(actualMessage, expectedMessage, "Error message is not displayed as expected");

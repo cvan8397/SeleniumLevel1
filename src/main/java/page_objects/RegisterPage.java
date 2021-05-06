@@ -14,6 +14,8 @@ public class RegisterPage extends GeneralPage {
     private final Button btnRegister = new Button(By.cssSelector("input[title='Register']"));
     private final Label lblSuccessfulMessage = new Label(By.id("content"));
     private final Label lblErrorMessage = new Label(By.cssSelector("[class='message error']"));
+    private final Label lblPasswordErrorMessage = new Label(By.cssSelector("[for=password].validation-error"));
+    private final Label lblPidErrorMessage = new Label(By.cssSelector("[for=pid].validation-error"));
 
     public void createAccount(Account account) {
         this.btnRegister.scrollToView();
@@ -28,7 +30,15 @@ public class RegisterPage extends GeneralPage {
         return lblSuccessfulMessage.getText();
     }
 
-    public String getErrorMessage() {
+    public String getGeneralErrorMessage() {
         return this.lblErrorMessage.getText();
+    }
+
+    public String getPasswordErrorMessage() {
+        return this.lblPasswordErrorMessage.getText();
+    }
+
+    public String getPIDErrorMessage() {
+        return this.lblPidErrorMessage.getText();
     }
 }
