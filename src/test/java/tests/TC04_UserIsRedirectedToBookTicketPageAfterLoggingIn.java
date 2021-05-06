@@ -23,6 +23,6 @@ public class TC04_UserIsRedirectedToBookTicketPageAfterLoggingIn extends TestBas
         String expectedResult = "Book ticket";
 
         Assert.assertEquals(actualResult, expectedResult, "Book ticket page is not displayed as expected");
-        Assert.assertEquals(bookTicketPage.getLbLBookTicketFormTitle(), "Book ticket form", "Book ticket form is not displayed as expected");
+        Assert.assertEquals(bookTicketPage.getBookTicketFormTitle(), "Book ticket form", "Book ticket form is not displayed as expected");
     }
 }
