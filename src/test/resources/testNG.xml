@@ -9,6 +9,7 @@
             <class name="tests.TC04_UserIsRedirectedToBookTicketPageAfterLoggingIn"/>
             <class name="tests.TC06_UserIsRedirectedToHomePageAfterLoggingOut" />
             <class name="tests.TC07_UserCanCreateNewAccount" />
+            <class name="tests.TC09_UserCannotChangePasswordWhenNewPasswordAndConfirmPasswordAreDifferent" />
         </classes>
     </test>
 </suite>
