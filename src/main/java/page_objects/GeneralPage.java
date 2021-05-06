@@ -9,9 +9,9 @@ public class GeneralPage {
     private final Tab registerTab = new Tab(By.cssSelector("a[href='/Account/Register.cshtml']"));
     private final Tab bookTicketTab = new Tab(By.cssSelector("a[href='/Page/BookTicketPage.cshtml']"));
     private final Tab logOutTab = new Tab(By.cssSelector("a[href='/Account/Logout']"));
-    private final Tab changePwdTab = new Tab(By.cssSelector("a[href='/Account/ChangePassword.cshtml']"));
-    private final Tab MyTicketTab = new Tab(By.cssSelector("a[href='/Page/ManageTicket.cshtml']"));
-    private final Tab ContactTab = new Tab(By.cssSelector("a[href='/Page/Contact.cshtml']"));
+    private final Tab changePasswordTab = new Tab(By.cssSelector("a[href='/Account/ChangePassword.cshtml']"));
+    private final Tab myTicketTab = new Tab(By.cssSelector("a[href='/Page/ManageTicket.cshtml']"));
+    private final Tab contactTab = new Tab(By.cssSelector("a[href='/Page/Contact.cshtml']"));
     private final Label lblWelcomeMessage = new Label(By.className("account"));
 
     public void gotoRegisterPage() {
@@ -27,15 +27,15 @@ public class GeneralPage {
     }
 
     public void gotoChangePasswordPage() {
-        this.changePwdTab.click();
+        this.changePasswordTab.click();
     }
 
     public void gotoMyTicketPage() {
-        this.MyTicketTab.click();
+        this.myTicketTab.click();
     }
 
     public void gotoContactPage() {
-        this.ContactTab.click();
+        this.contactTab.click();
     }
 
     public void logout() {
