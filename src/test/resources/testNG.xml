@@ -10,6 +10,7 @@
             <class name="tests.TC06_UserIsRedirectedToHomePageAfterLoggingOut" />
             <class name="tests.TC07_UserCanCreateNewAccount" />
             <class name="tests.TC09_UserCannotChangePasswordWhenNewPasswordAndConfirmPasswordAreDifferent" />
+            <class name="tests.TC10_UserCannotCreateAccountWithAnAlreadyInuseEmail" />
         </classes>
     </test>
 </suite>
