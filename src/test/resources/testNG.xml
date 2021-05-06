@@ -1,11 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite" verbose="1" >
+<suite name="Suite" verbose="1">
     <test name="Chrome Test">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.TC01_UserCanLoginWithValidAccount" />
             <class name="tests.TC02_UserCanNotLoginWithBlankUsername" />
             <class name="tests.TC03_UserCannotLoginWithInvalidPassword" />
+            <class name="tests.TC04_UserIsRedirectedToBookTicketPageAfterLoggingIn"/>
         </classes>
     </test>
 </suite>
