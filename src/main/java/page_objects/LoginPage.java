@@ -6,7 +6,7 @@ import elements.TextBox;
 import models.Account;
 import org.openqa.selenium.By;
 
-public class LoginPage extends GeneralPage{
+public class LoginPage extends GeneralPage {
     private final TextBox txtUsername = new TextBox(By.id("username"));
     private final TextBox txtPassword = new TextBox(By.id("password"));
     private final Button btnLogin = new Button(By.cssSelector(".form-actions input"));
@@ -21,7 +21,7 @@ public class LoginPage extends GeneralPage{
         this.btnLogin.click();
     }
 
-    public String getGeneralErrorMsg() {
+    public String getGeneralErrorMsgText() {
         return this.lblGeneralErrorMsg.getText();
     }
 }

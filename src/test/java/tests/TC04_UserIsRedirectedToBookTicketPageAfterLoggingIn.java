@@ -8,7 +8,7 @@ import page_objects.BookTicketPage;
 import page_objects.HomePage;
 import page_objects.LoginPage;
 
-public class TC04 extends TestBase {
+public class TC04_UserIsRedirectedToBookTicketPageAfterLoggingIn extends TestBase {
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
     BookTicketPage bookTicketPage = new BookTicketPage();
@@ -23,6 +23,6 @@ public class TC04 extends TestBase {
         String expectedResult = "Book ticket";
 
         Assert.assertEquals(actualResult, expectedResult, "Book ticket page is not displayed as expected");
-        Assert.assertEquals(bookTicketPage.getLbLBookTicketForm(), "Book ticket form", "Book ticket form is not displayed as expected");
+        Assert.assertEquals(bookTicketPage.getLbLBookTicketFormTitle(), "Book ticket form", "Book ticket form is not displayed as expected");
     }
 }

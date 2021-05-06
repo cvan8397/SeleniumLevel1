@@ -3,7 +3,7 @@
     <test name="Chrome Test">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="tests.TC04"/>
+            <class name="tests.TC04_UserIsRedirectedToBookTicketPageAfterLoggingIn"/>
         </classes>
     </test>
 </suite>
