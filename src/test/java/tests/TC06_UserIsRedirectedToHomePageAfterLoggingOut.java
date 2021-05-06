@@ -21,7 +21,7 @@ public class TC06_UserIsRedirectedToHomePageAfterLoggingOut extends TestBase {
         loginPage.gotoContactPage();
         contactPage.logout();
 
-        String actualHeader = homePage.getWelcomeRailWayText();
+        String actualHeader = homePage.getWelcomeRailWayHeader();
         String expectedHeader = "Welcome to Safe Railway";
 
         Assert.assertEquals(actualHeader, expectedHeader, "Home page is not displayed as expected");

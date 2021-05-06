@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 public class HomePage extends GeneralPage {
     private final Label lblWelcomeRailWay = new Label(By.cssSelector("#content>h1"));
 
-    public String getWelcomeRailWayText() {
+    public String getWelcomeRailWayHeader() {
         return this.lblWelcomeRailWay.getText();
     }
 }
