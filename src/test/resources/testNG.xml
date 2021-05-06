@@ -5,6 +5,7 @@
         <classes>
             <class name="tests.TC01_UserCanLoginWithValidAccount" />
             <class name="tests.TC02_UserCanNotLoginWithBlankUsername" />
+            <class name="tests.TC03_UserCannotLoginWithInvalidPassword" />
         </classes>
     </test>
 </suite>
