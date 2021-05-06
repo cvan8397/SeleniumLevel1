@@ -21,7 +21,7 @@ public class TC09_UserCannotChangePasswordWhenNewPasswordAndConfirmPasswordAreDi
         loginPage.gotoChangePasswordPage();
         changePasswordPage.changePassword(Constant.PASSWORD, "a123:\"/{}!@$\\", "b456:\"/{}!@$\\");
 
-        String actualMsg = changePasswordPage.getErrorMsgText();
+        String actualMsg = changePasswordPage.getErrorMessage();
         String expectedMsg = "Password change failed. Please correct the errors and try again.";
 
         Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");

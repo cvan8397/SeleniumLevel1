@@ -10,7 +10,7 @@ public class ChangePasswordPage extends GeneralPage {
     private final TextBox txtNewPassword = new TextBox(By.id("newPassword"));
     private final TextBox txtConfirmPassword = new TextBox(By.id("confirmPassword"));
     private final Button btnChangePassword = new Button(By.cssSelector(".form-actions input"));
-    private final Label lblErrorMsg = new Label(By.cssSelector("[class='message error']"));
+    private final Label lblErrorMessage = new Label(By.cssSelector("[class='message error']"));
 
     public void changePassword(String currentPassword, String newPassword, String confirmPassword) {
         this.btnChangePassword.scrollToView();
@@ -20,7 +20,7 @@ public class ChangePasswordPage extends GeneralPage {
         this.btnChangePassword.click();
     }
 
-    public String getErrorMsgText() {
-        return this.lblErrorMsg.getText();
+    public String getErrorMessage() {
+        return this.lblErrorMessage.getText();
     }
 }
