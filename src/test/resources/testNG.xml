@@ -3,7 +3,8 @@
     <test name="Chrome Test">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="tests.TC03" />
+            <class name="tests.TC01_UserCanLoginWithValidAccount" />
+            <class name="tests.TC03_UserCannotLoginWithInvalidPassword" />
         </classes>
     </test>
 </suite>
