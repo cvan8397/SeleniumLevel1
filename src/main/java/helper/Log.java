@@ -1,9 +1,10 @@
 package helper;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Log {
-    private static Logger Logger = LogManager.getLogger(Log.class.getName());
+    private static final Logger Logger = LogManager.getLogger(Log.class.getName());
 
     public static void startTestCase(String sTestCaseName) {
         Logger.info("\n----------------- " + sTestCaseName + "\n");

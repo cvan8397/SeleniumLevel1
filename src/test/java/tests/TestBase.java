@@ -18,7 +18,8 @@ public class TestBase {
     }
 
     @AfterMethod
-    public void closePage() {
+    public void afterMethod() {
+        Log.info("Post-condition");
         BrowserHelper.quitBrowser();
     }
 }
