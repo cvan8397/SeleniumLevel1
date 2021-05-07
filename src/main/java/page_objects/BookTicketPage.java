@@ -16,7 +16,7 @@ public class BookTicketPage extends GeneralPage {
     private final DropDown ddTicketAmount = new DropDown(By.name("TicketAmount"));
     private final Button btnBookTicket = new Button(By.cssSelector("fieldset input"));
     private final Label lblSuccessfulMessage = new Label(By.cssSelector("#content>h1"));
-    private final String dynamicTableCell = "//td[count(//th[text()='%s']/preceding-sibling::th)+1]";
+    private final String dynamicTableCell = "//table[@class='MyTable WideTable']//td[count(//th[text()='%s']/preceding-sibling::th)+1]";
 
     public String getBookTicketTitle() {
         return this.lblBookTicket.getText();
