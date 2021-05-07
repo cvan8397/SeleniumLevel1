@@ -12,6 +12,7 @@
             <class name="tests.TC09_UserCannotChangePasswordWhenNewPasswordAndConfirmPasswordAreDifferent" />
             <class name="tests.TC10_UserCannotCreateAccountWithAnAlreadyInuseEmail" />
             <class name="tests.TC11_UserCannotCreateAccountWhilePasswordAndPIDFieldsAreEmpty" />
+            <class name="tests.TC14_UserCanBookManyTicketAtATime" />
         </classes>
     </test>
 </suite>
