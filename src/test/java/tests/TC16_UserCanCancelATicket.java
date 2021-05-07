@@ -25,8 +25,11 @@ public class TC16_UserCanCancelATicket extends TestBase {
         Ticket ticket = new Ticket(DataHelper.getRandomDepartDate(), "Nha Trang", "Sài Gòn", "Soft seat", "1");
         bookTicketPage.bookTicket(ticket);
         bookTicketPage.gotoMyTicketPage();
+        int ticketsAmountBeforeDeleting = myTicketPage.countTickets();
         myTicketPage.cancelTicket();
+        int actualTicketsAmount = myTicketPage.countTickets();
+        int expectedTicketsAmount = ticketsAmountBeforeDeleting -1;
 
-        Assert.assertFalse(myTicketPage.isTicketDisplayed(), "Ticket is not deleted !");
+        Assert.assertEquals(actualTicketsAmount, expectedTicketsAmount, "Ticket deletes unsuccessfully");
     }
 }

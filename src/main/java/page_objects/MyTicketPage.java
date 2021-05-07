@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 
 public class MyTicketPage extends GeneralPage {
     private final Button btnCancel = new Button(By.cssSelector(".MyTable input"));
-    private final Label lblNoteMessage = new Label(By.cssSelector("#content li"));
 
     public void cancelTicket() {
         this.btnCancel.scrollToView();
@@ -15,11 +14,7 @@ public class MyTicketPage extends GeneralPage {
         BrowserHelper.acceptAlert();
     }
 
-    public String getNoteMessage() {
-        return this.lblNoteMessage.getText();
-    }
-
-    public boolean isTicketDisplayed() {
-        return this.btnCancel.isDisplayed();
+    public int countTickets(){
+        return this.btnCancel.findElements().size();
     }
 }
