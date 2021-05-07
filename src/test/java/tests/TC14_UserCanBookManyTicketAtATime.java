@@ -16,7 +16,7 @@ public class TC14_UserCanBookManyTicketAtATime extends TestBase {
     LoginPage loginPage = new LoginPage();
     BookTicketPage bookTicketPage = new BookTicketPage();
 
-    String departDate = DataHelper.getRandomDepartDate();
+    String departDate = DataHelper.getDateFromToday(9);
     String bookDate = DataHelper.getDateFromToday(0);
     String expiredDate = DataHelper.getDateFromToday(3);
 
