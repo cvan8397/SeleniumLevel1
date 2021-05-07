@@ -15,7 +15,7 @@ public class TC15_TicketPricePageDisplaysWithTicketDetails extends TestBase {
     TimetablePage timetablePage = new TimetablePage();
     TicketPricePage ticketPricePage = new TicketPricePage();
 
-    @Test(description = "User can login successfully with valid username and password")
+    @Test(description = "User can open 'Book ticket' page by clicking on 'Book ticket' link in 'Train timetable' page")
     public void testCase15() {
         Account account = new Account(Constant.USERNAME, Constant.PASSWORD);
         homePage.gotoLoginPage();
@@ -27,9 +27,15 @@ public class TC15_TicketPricePageDisplaysWithTicketDetails extends TestBase {
         String expectedPageHeader = "Ticket Price";
 
         String actualTableHeader = ticketPricePage.getTableHeader();
-        String expectedTableHeader = "Ticket price from Đà Nẵng to Sài Gòn";
+        String expectedTableHeader = "Ticket price from Sài Gòn to Phan Thiết";
 
         Assert.assertEquals(actualPageHeader, expectedPageHeader, "Ticket Price page is not displayed as expected");
         Assert.assertEquals(actualTableHeader, expectedTableHeader, "Ticket table is not shown as expected");
+        Assert.assertEquals(ticketPricePage.getTableCellValue("HS"), "310000", "HS is not displayed as expected");
+        Assert.assertEquals(ticketPricePage.getTableCellValue("SS"), "335000", "SS is not displayed as expected");
+        Assert.assertEquals(ticketPricePage.getTableCellValue("SSC"), "360000", "SSC is not displayed as expected");
+        Assert.assertEquals(ticketPricePage.getTableCellValue("HB"), "410000", "HB is not displayed as expected");
+        Assert.assertEquals(ticketPricePage.getTableCellValue("SB"), "460000", "SB is not displayed as expected");
+        Assert.assertEquals(ticketPricePage.getTableCellValue("SBC"), "510000", "SBC is not displayed as expected");
     }
 }
