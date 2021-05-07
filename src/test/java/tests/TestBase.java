@@ -15,6 +15,7 @@ public class TestBase {
         Log.info("Pre-condition");
         BrowserHelper.startBrowser(BrowserHelper.DriverType.valueOf(browser.toUpperCase()));
         BrowserHelper.navigateToUrl(Constant.RAILWAY_URL);
+        BrowserHelper.maximizeBrowser();
     }
 
     @AfterMethod

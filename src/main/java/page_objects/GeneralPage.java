@@ -12,6 +12,7 @@ public class GeneralPage {
     private final Tab changePasswordTab = new Tab(By.cssSelector("a[href='/Account/ChangePassword.cshtml']"));
     private final Tab myTicketTab = new Tab(By.cssSelector("a[href='/Page/ManageTicket.cshtml']"));
     private final Tab contactTab = new Tab(By.cssSelector("a[href='/Page/Contact.cshtml']"));
+    private final Tab timetableTab = new Tab(By.cssSelector("a[href='TrainTimeListPage.cshtml']"));
     private final Label lblWelcomeMessage = new Label(By.className("account"));
 
     public void gotoRegisterPage() {
@@ -36,6 +37,10 @@ public class GeneralPage {
 
     public void gotoContactPage() {
         this.contactTab.click();
+    }
+
+    public void gotoTimetablePage() {
+        this.timetableTab.click();
     }
 
     public void logout() {
