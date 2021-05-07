@@ -31,10 +31,10 @@ public class TC14_UserCanBookManyTicketAtATime extends TestBase {
         Ticket ticket = new Ticket(departDate, "Nha Trang", "Sài Gòn", "Soft seat", "5");
         bookTicketPage.bookTicket(ticket);
 
-        String actualMsg = bookTicketPage.getSuccessfulMessage();
-        String expectedMsg = "Ticket Booked Successfully!";
+        String actualSuccessfulMessage = bookTicketPage.getSuccessfulMessage();
+        String expectedSuccessfulMessage = "Ticket Booked Successfully!";
 
-        Assert.assertEquals(actualMsg, expectedMsg, "BookTicket message is not displayed as expected");
+        Assert.assertEquals(actualSuccessfulMessage, expectedSuccessfulMessage, "BookTicket message is not displayed as expected");
         Assert.assertEquals(bookTicketPage.getTableCellValue("Depart Station"), "Nha Trang", "Depart Station is not displayed as expected");
         Assert.assertEquals(bookTicketPage.getTableCellValue("Arrive Station"), "Sài Gòn", "Arrive Station is not displayed as expected");
         Assert.assertEquals(bookTicketPage.getTableCellValue("Seat Type"), "Soft seat", "Seat type is not displayed as expected");
