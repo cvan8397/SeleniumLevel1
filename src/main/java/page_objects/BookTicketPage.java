@@ -14,7 +14,7 @@ public class BookTicketPage extends GeneralPage {
     private final DropDown ddArriveAt = new DropDown(By.name("ArriveStation"));
     private final DropDown ddSeatType = new DropDown(By.name("SeatType"));
     private final DropDown ddTicketAmount = new DropDown(By.name("TicketAmount"));
-    private final Button btnBookTicket = new Button(By.cssSelector("a[href='/Page/BookTicketPage.cshtml']"));
+    private final Button btnBookTicket = new Button(By.cssSelector("fieldset input"));
     private final Label lblSuccessfulMessage = new Label(By.cssSelector("#content>h1"));
     private final String dynamicTableCell = "//table/tbody/tr/td[count(//table/tbody/tr/th[.='%s']/preceding-sibling::th)+1]";
 
