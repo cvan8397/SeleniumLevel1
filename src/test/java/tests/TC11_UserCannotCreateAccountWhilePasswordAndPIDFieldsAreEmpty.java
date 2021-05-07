@@ -20,14 +20,14 @@ public class TC11_UserCannotCreateAccountWhilePasswordAndPIDFieldsAreEmpty exten
         String actualGeneralErrorMessage = registerPage.getGeneralErrorMessage();
         String expectedGeneralErrorMessage = "There're errors in the form. Please correct the errors and try again.";
 
-        String actualPasswordMessage = registerPage.getPasswordErrorMessage();
-        String expectedPasswordMessage = "Invalid password length";
+        String actualPasswordErrorMessage = registerPage.getPasswordErrorMessage();
+        String expectedPasswordErrorMessage = "Invalid password length";
 
-        String actualPIDMessage = registerPage.getPIDErrorMessage();
-        String expectedPIDMessage = "Invalid ID length";
+        String actualPIDErrorMessage = registerPage.getPIDErrorMessage();
+        String expectedPIDErrorMessage = "Invalid ID length";
 
         Assert.assertEquals(actualGeneralErrorMessage, expectedGeneralErrorMessage, "Error message is not displayed as expected");
-        Assert.assertEquals(actualPasswordMessage, expectedPasswordMessage, "Password error message is not displayed as expected");
-        Assert.assertEquals(actualPIDMessage, expectedPIDMessage, "Password error message is not displayed as expected");
+        Assert.assertEquals(actualPasswordErrorMessage, expectedPasswordErrorMessage, "Password error message is not displayed as expected");
+        Assert.assertEquals(actualPIDErrorMessage, expectedPIDErrorMessage, "Password error message is not displayed as expected");
     }
 }
